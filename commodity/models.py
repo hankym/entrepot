@@ -8,7 +8,18 @@ class Book(models.Model):
 
     num  = models.IntegerField(u"库存")
 
-    img  = models.ImageField(upload_to='img')
+    sale = models.IntegerField(u"已售")
+
+
+
+    def my_property(self):
+
+        return self.num - self.sale
+
+    my_property.short_description = "剩余"
+    remain = property(my_property)
+
+    #img  = models.ImageField(upload_to='img')
 
 
     def __str__(self):

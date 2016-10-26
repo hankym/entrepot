@@ -6,9 +6,10 @@ from .form import ThumbnailAdminForm
 
 
 class BooksAdmin(admin.ModelAdmin):
-    list_display = ("name","num")
-
-    form = ThumbnailAdminForm
+    list_display = ("name","num","sale","remain")
+    list_editable = ('sale',)
+    search_fields = ("name",)
+    #form = ThumbnailAdminForm
 
 
 
